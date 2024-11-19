@@ -7,14 +7,23 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.github.michele.cianni.gradesubmission.exception.CourseNotFoundException;
+import com.github.michele.cianni.gradesubmission.exception.GradeNotFoundException;
+import com.github.michele.cianni.gradesubmission.exception.StudentNotEnrolledException;
 import com.github.michele.cianni.gradesubmission.exception.StudentNotFoundException;
 
 @ControllerAdvice
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler({ CourseNotFoundException.class, StudentNotFoundException.class })
+    @ExceptionHandler({ 
+        CourseNotFoundException.class, 
+        GradeNotFoundException.class, 
+        StudentNotFoundException.class,
+        StudentNotEnrolledException.class 
+    })
     public ResponseEntity<Object> handleResourceNotFoundException(RuntimeException ex) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorResponse.with(ex.getMessage()));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ErrorResponse.with(ex.getMessage()));
     }
 
+    
 }

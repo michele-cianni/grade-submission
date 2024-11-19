@@ -1,9 +1,11 @@
 package com.github.michele.cianni.gradesubmission.service;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.github.michele.cianni.gradesubmission.entity.Course;
 import com.github.michele.cianni.gradesubmission.entity.Student;
 import com.github.michele.cianni.gradesubmission.exception.StudentNotFoundException;
 import com.github.michele.cianni.gradesubmission.repository.StudentRepository;
@@ -37,6 +39,11 @@ public class StudentServiceImpl implements StudentService {
                 .peek(student -> studentRepository.delete(student))
                 .findFirst()
                 .orElseThrow(() -> new StudentNotFoundException(id));
+    }
+    
+    @Override
+    public Set<Course> getEnrolledCourses(Long id) {
+        return this.getStudent(id).getCourses();
     }
     
     private Optional<Student> getStudentById(Long id) {
