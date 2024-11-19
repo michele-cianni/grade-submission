@@ -19,12 +19,16 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "student")
