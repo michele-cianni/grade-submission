@@ -9,6 +9,6 @@ public interface StudentService {
     Student save(Student student);
     Student getStudent(Long id);
     Iterable<Student> getStudents();
-    Student deleteStudent(Long id);
+    void deleteStudent(Long id);
     Set<Course> getEnrolledCourses(Long id);
 }

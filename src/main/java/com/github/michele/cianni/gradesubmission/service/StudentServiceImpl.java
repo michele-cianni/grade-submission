@@ -34,11 +34,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student deleteStudent(Long id) {
-        return this.getStudentById(id).stream()
-                .peek(student -> studentRepository.delete(student))
-                .findFirst()
-                .orElseThrow(() -> new StudentNotFoundException(id));
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
     }
     
     @Override

@@ -9,5 +9,5 @@ public interface GradeService {
     Iterable<Grade> getStudentGrades(Long studentId);
     Iterable<Grade> getCourseGrades(Long courseId);
     Grade updateGrade(String score, Long studentId, Long courseId);
-    Grade deleteGrade(Long studentId, Long courseId);
+    void deleteGrade(Long studentId, Long courseId);
 }

@@ -9,7 +9,7 @@ public interface CourseService {
     Course save(Course course);
     Course getCourse(Long id);
     Iterable<Course> getCourses();
-    Course deleteCourse(Long id);
+    void deleteCourse(Long id);
     Course addStudentToCourse(Long studentId, Long courseId);
     Set<Student> getEnrolledStudents(Long id);
 }

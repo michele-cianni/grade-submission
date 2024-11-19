@@ -38,11 +38,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course deleteCourse(Long id) {
-        return this.getCourseById(id).stream()
-                .peek(courseRepository::delete)
-                .findFirst()
-                .orElseThrow(() -> new CourseNotFoundException(id));
+    public void deleteCourse(Long id) {
+        courseRepository.deleteById(id);
     }
 
     private Optional<Course> getCourseById(Long id) {

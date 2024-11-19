@@ -65,11 +65,8 @@ public class GradeServiceImpl implements GradeService {
     }
 
     @Override
-    public Grade deleteGrade(Long studentId, Long courseId) {
-        return this.getGradeByStudentAndCourse(studentId, courseId).stream()
-                .peek(grade -> gradeRepository.delete(grade))
-                .findFirst()
-                .orElseThrow(() -> new GradeNotFoundException(studentId, courseId));
+    public void deleteGrade(Long studentId, Long courseId) {
+        gradeRepository.deleteByStudentIdAndCourseId(studentId, courseId);
     }
 
     private Optional<Grade> getGradeByStudentAndCourse(Long studentId, Long courseId) {
