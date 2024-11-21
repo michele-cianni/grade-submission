@@ -20,7 +20,7 @@ To run the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/grade-submission.git
+   git clone https://github.com/michele-cianni/grade-submission.git
    ```
 2. Open the project in a Spring Boot-compatible IDE (e.g., IntelliJ IDEA or Eclipse).
 3. Ensure you have Java 11 or later installed.
